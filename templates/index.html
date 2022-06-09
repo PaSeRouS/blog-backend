@@ -30,7 +30,7 @@
             <div class="card blog__slide text-center">
               <div class="blog__slide__img">
                 {% if popular_post.image_url %}
-                  <img class="card-img rounded-0" src="{% static popular_post.image_url %}" alt="Картинка">
+                  <img class="card-img rounded-0" src="{{popular_post.image_url}}" alt="Картинка">
                 {% else %}
                   <img class="card-img rounded-0" src="{% static 'img/banner/blog.png' %}" alt="Картинка">
                 {% endif %}
@@ -56,7 +56,7 @@
             <div class="single-recent-blog-post">
               <div class="thumb">
                 {% if fresh_post.image_url %}
-                  <img class="img-fluid" src="{% static fresh_post.image_url %}" alt="Картинка">
+                  <img class="img-fluid" src="{{fresh_post.image_url}}" alt="Картинка">
                 {% else %}
                   <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="Картинка">
                 {% endif %}
@@ -69,7 +69,7 @@
               <div class="details mt-20">
                 <h3>{{ fresh_post.title }}</h3>
                 <p>{{ fresh_post.text|truncatechars:200 }}</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                <a class="button" href="{% url 'post_detail' slug=fresh_post.slug %}">Read More <i class="ti-arrow-right"></i></a>
               </div>
             </div>
           {% endfor %}
